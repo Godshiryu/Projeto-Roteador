@@ -1,0 +1,769 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2// EN">
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Documento de Arquitetura de Software</title>
+<link type="text/css" href="../../../../css/default.css" rel="StyleSheet">
+
+</head>
+
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b>
+<font  size="5">
+<p align="RIGHT"><a name="top"></a>Projeto Roteador</p>
+</font><p align="RIGHT"><font  size="5">Documento de Arquitetura de Software<br>
+</font><font  size="4">Versão 1.0</font></p>
+<font  size="5">
+<p align="CENTER">Histórico da Revisão</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="90%">
+  <tr>
+    <th width="20%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Data</b></font></th>
+    <th width="10%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Versão</b></font></th>
+    <th width="55%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Descrição</b></font></th>
+    <th width="15%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Autor</b></font></th>
+  </tr>
+  <tr>
+    <td width="20%" valign="TOP"><font size="2">07/Outubro/2015</font></td>
+    <td width="10%" valign="TOP"><font size="2">1.0</font></td>
+    <td width="55%" valign="TOP"><font size="2">Documento de Arquitetura de Software
+    gerado utilizando o gabarito Rational SoDA e o modelo Rational Rose.</font></td>
+    <td width="15%" valign="TOP"><font size="2">Guilherme Soares, João Marcos, Jocival Junior, Matheus Sanches, Renan Gonzales, Rodrigo Borborema</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<font  size="5"><b>
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER"><a name="toc"></a>Índice<a href="#top"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></p></b></font>
+<blockquote>
+  <p align="left"><font size="3">1.&nbsp; <a href="#_Toc447085888">Introdução</a></font></p>
+  <font size="3">2. &nbsp; <a href="#_Toc447085890">Representação da Arquitetura</a></font>
+  <p><font size="3">3. &nbsp; <a href="#_Toc447085891">Objetivos e Restrições da Arquitetura</a></font>
+  <p><font size="3">4. &nbsp; <a href="#_Toc447085892">Visualização de Caso de Uso</a></font>
+  <p><font size="3">5. &nbsp; <a href="#_Toc447085902">Visualização Lógica</a></font>
+  <p><font size="3">6. &nbsp; <a href="#_Toc447085911">Visualização de Processo</a></font>
+  <p><font size="3">7. &nbsp; <a href="#_Toc447085962">Visualização da Implementação</a></font>
+  <p><font size="3">8. &nbsp; <a href="#_Toc447085968">Tamanho e Desempenho</a></font>
+  <p><font size="3">9. &nbsp; <a href="#_Toc447085969">Qualidade</a></font>
+</blockquote>
+<b><font  size="5">
+<p align="CENTER">Documento de Arquitetura de Software</p>
+</font>
+<font ><a name="_Toc447085888">Introdução</a><a name="_Toc447085888" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></font>
+</b><font size="2">
+<h4>1.1 Objetivo</h4>
+</font>
+<ol>
+  <font size="2">
+<p>Este documento fornece uma visão arquitetural abrangente do sistema, usando diversas visões de arquitetura para representar diferentes aspectos do sistema.
+Ele pretende capturar e transmitir as decisões arquiteturas significativas que foram tomadas em relação ao sistema.
+</p>
+</font></ol><font size="2">
+<h4>1.2 Escopo</h4>
+</font>
+<ol>
+  <font size="2">
+<p>Este Documento de Arquitetura de Software fornece uma visão geral de arquitetura do
+Sistema de Roteamento de Emails, que está sendo desenvolvido para solucionar o problema de uma empresa referente a roteamento de emails do service desk.</p>
+</font></ol><font size="2">
+<h4>1.3 Definições, Acrônimos e Abreviações</h4>
+</font>
+<ol>
+  <font size="2">
+<p>Consulte o Glossário [4].</p>
+</font></ol><font size="2">
+<h4>1.4 Referências</h4>
+</font>
+<ol>
+  <font size="2">
+<blockquote>
+  <p>As referências aplicáveis são:</p>
+</blockquote>
+<ol>
+  <ol>
+	<li>Sistema de Roteamento de Emails - Caso de Uso - Atualizar Analistas Ativos, Versão 1.0, 2015</li>
+	<li>Sistema de Roteamento de Emails - Caso de Uso - Atualizar Caixa de Entrada, Versão 1.0, 2015</li>
+	<li>Sistema de Roteamento de Emails - Caso de Uso - Gerar Logs de Emails, Versão 1.0, 2015</li>
+	<li>Sistema de Roteamento de Emails - Caso de Uso - Rotear Emails, Versão 1.0, 2015</li>
+  </ol>
+</ol>
+</font></ol>
+      <font size="2"> <a name="archRepresentation"></a></font><font ><b>2.&nbsp;
+      <a name="_Toc447085890">Representação da Arquitetura</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a>
+      </b></font> 
+      <ol>
+        <font size="2"> Este documento apresenta a arquitetura como uma série de
+        visualizações; visualização caso de uso, visualização lógica, visualização do processo e visualização da implementação. 
+        Não existe uma visualização de implementação separada descrita neste documento. Elas
+        são visualizações em um modelo UML (linguagem de modelagem unificada) subjacente desenvolvido
+        utilizando o Rational Rose.</font> 
+      </ol>
+<font ><b>3.&nbsp; <a name="_Toc447085891">Objetivos e Restrições da
+  Arquitetura</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></b></font>
+<blockquote>
+    <font size="2">
+    <p>Existem alguns requisitos chave e restrições do sistema que têm um
+    relacionamento significativo com a arquitetura. São eles:
+</p>
+  </font></blockquote><ol>
+<ol>
+  <font size="2">
+	<li>O Sistema de Roteamento de Emails deve oferecer não somente a opção de roteamento automático, mas também oferecer uma interface gráfica para que as atividades de checar caixa de entrada e roteamento de emails seja realizada de forma manual.</li>
+	<li>O sistema deve ser executado em conjunto com o Microsoft Outlook, que fará a conexão com o servidor e permitirá a checagem da caixa de entrada e o roteamento para as pastas específicas.</li>
+    <li>O sistema principal da empresa deverá ser acessado, para que seja possível conferir o status do funcionário - ausente, disponível ou em pausa - utilizando a rede local da empresa.</li>
+    <li>O sistema deverá estar disponível para uso manual no computador utilizado pelo supervisor, e o acesso à interface gráfica e roteamento manual exige níveis mais altos de acesso.</li>
+</li>
+    <li>Todos os requisitos de desempenho e carga, conforme estipulados no Documento de
+      Visão [3] e na Especificação Complementar [15], devem ser levados em
+      consideração à medida que a arquitetura for desenvolvida.</li></font>
+</ol>
+<p>
+</ol>
+  <font ><b>4.&nbsp; <a name="_Toc447085892">Visualização de Caso de Uso</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></b></font>
+<blockquote>
+<font size="2">
+<p>Uma descrição da visualização de casos de uso da arquitetura de software. A Visualização de Caso de Uso
+é uma entrada importante para a seleção do conjunto de cenários e/ou casos de
+uso que são o foco de uma iteração. Ela descreve o conjunto de cenários e/ou os casos de uso que representam alguma funcionalidade central e significativa.
+Também descreve o conjunto de cenários e/ou casos de uso que possuem cobertura arquitetural substancial (que exercita vários elementos de arquitetura) ou que enfatizam ou ilustram um determinado ponto complicado da arquitetura.
+</p>
+<p>Os casos de uso do Sistema de Roteamento de Emails são:</p>
+<p>- Atualizar Lista de Analistas Ativos</p>
+<p>- Atualizar Caixa de Entrada</p>
+<p>- Gerar Logs de Emails</p>
+<p>- Rotear Emails</p>
+<p>O agente é, no caso da interface gráfica e roteamento manual, o supervisor do Service Desk além dos agentes do roteamento automático, os sistemas com os quais o Sistema de Roteamento de Emails se integra.</font>
+</blockquote>
+<font  size="2"><b>4.1&nbsp; <a name="_Toc447085893">Casos de Uso Significativos para
+    Arquitetura</a>
+    </b></font>
+  <p><img src="img/diagrama_caso_uso.jpg" alt="Diagrama de Caso de Uso"></p>
+<ol>
+<ol>
+  <font size="2">
+  <p align="CENTER">Casos de Uso Significativos para a Arquitetura</p>
+  </font>
+  <p>
+    
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">4.1.1 <a name="_Toc447085894">Atualizar Analistas Ativos</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Breve descrição: Esse caso de uso deve atualizar a lista de analistas disponíveis e alimentar a fila de prioridade de acordo com essa informação.</p>
+	<p>O sistema que gerencia os funcionários e os ramais para pausa e ponto é o agente deste caso de uso.
+</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">4.1.2 <a name="_Toc447085895">Atualizar Caixa de Entrada</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Breve descrição: Este caso de uso trata da comunicação com o sistema de emails, a fim de checar periodicamente se existe algum novo email a ser roteado para os analistas e assistentes.</p>
+	<p>O agente deste caso de uso é o próprio sistema.
+</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">4.1.3 <a name="_Toc447085896">Gerar Logs de Emails</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Breve Descrição: Esse caso de uso é responsável por manter um registro de cada movimentação feita com os emails que chegam.</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">4.1.4 <a name="_Toc447085897">Rotear Emails</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Breve Descrição: Esse caso de uso permite que os emails que chegam na caixa de entrada sejam roteados a uma pasta de um analista ou assistente em específico.</p>
+	<p>O servidor de emails é um agente deste caso de uso.</p>
+</p>
+    </font>
+    </ol>
+    </ol>
+</ol>
+<font ><b>5.&nbsp; <a name="_Toc447085902">Visualização Lógica</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></b></font>
+<ol>
+<font size="2">
+<p>Uma descrição da visualização lógica da arquitetura. Descreve as classes
+mais importantes, sua organização em pacotes de serviço e subsistemas e
+a organização desses subsistemas em camadas. Também descreve as realizações
+de casos de uso mais importantes como, por exemplo, os aspectos dinâmicos da
+arquitetura. Diagramas de classe podem ser incluídos para ilustrar os relacionamentos
+entre as classes, subsistemas, pacotes e camadas significativos da arquitetura.</p>
+<p>A visualização lógica do sistema de registro em curso é composta de 3 pacotes
+principais: Interface com o Usuário, Serviços de Negócios e Objetos de Negócios.</p>
+<p>O Pacote de Interface com o Usuário contém classes para cada um dos formulários utilizados
+pelos agentes para comunicar com o Sistema. Existem classes de limite para suportar
+login, manutenção de planejamentos, manutenção de informações de professores, seleção
+de cursos, submissão de notas, manutenção de informações de estudantes, fechamento de registro e
+visualização de cartões de relatório.</p>
+<p>O Pacote de Serviços de Negócios contém classes de controle para fazer interface com
+o sistema financeiro, controlar o registro de estudantes e gerenciar a avaliação
+dos estudantes.</p>
+<p>O Pacote de Objetos de Negócios inclui classes de entidade para os artefatos da
+universidade (isto é, oferta de curso, planejamento) e classes de limite para a
+interface com o Sistema de Catálogo de Cursos.</p>
+</font>
+<p>
+</ol>
+<font  size="2"><b>5.1&nbsp; <a name="_Toc447085903">Visão Geral
+    da Arquitetura - Disposição em Camadas de Pacotes e Subsistemas</a>
+    </b></font><font size="2">
+  <p><img src="images/sadoc_4.gif" alt="Legenda Acima como Cabeçalho" width="532" height="482" border="0"></p>
+  </font>
+<ol>
+<ol>
+  <p>
+    
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">5.1.1 <a name="_Toc447085904">Aplicativo</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>camada</p>
+    <p>Esta camada de aplicativo tem todas as classes de limite que representam as
+    telas do aplicativo visualizadas pelo usuário. Essa camada depende da camada de
+    Objetos de Processo; isso aumenta a separação do cliente da mid-tier.</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">5.1.2 <a name="_Toc447085905">Serviços de Negócios</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>camada</p>
+    <p>A camada de processo Serviços de Negócios tem todas as classes de controlador que
+    representam os gerenciadores de caso de uso que direcionam o comportamento do aplicativo. Essa
+    camada representa a divisa cliente para mid-tier. A camada Serviços de Negócios
+    depende da camada de Objetos de Processo; isso aumenta a separação do
+    cliente da mid-tier.</p>
+    </font>
+    </ol>
+    </ol>
+</ol>
+<ol>
+<ol>
+  <ol>
+    </ol>
+    </ol>
+</ol>
+<i>
+    <blockquote>
+      <p><font  size="2">5.1.3 <a name="_Toc447085908">Middleware</a></font></p>
+      </blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>camada</p>
+    <p>A camada Middleware suporta o acesso ao DBMS Relacional e ao OODBMS.</p>
+    </font>
+    </ol>
+    </ol>
+</ol>
+<i>
+    <blockquote>
+      <p><font  size="2">5.1.4 <a name="_Toc447085910">Reutilização Base</a></font></p>
+      </blockquote></i><ol><i>
+<font  size="2">
+  </font></i><font size="2">
+<blockquote>
+<p>O pacote Reutilização Base inclui classes para suportar funções de lista e
+padrões.</p>
+<p>&nbsp;</p>
+</blockquote>
+</font>
+</ol>
+<font ><b>6.&nbsp; <a name="_Toc447085911">Visualização do Processo</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></b></font>
+<ol>
+<font size="2">
+<p>Uma descrição da visualização do processo da arquitetura. Descreve as tarefas
+(processos e encadeamentos) envolvidas na execução do sistema, suas interações
+e configurações. Também descreve a alocação de objetos e classes para
+tarefas.</p>
+<p>O Modelo de Processo ilustra as classes de registro em curso organizadas como
+processos executáveis. Existem processos para suportar o registro de estudantes, funções de
+professores, fechamento de registro e acesso ao Sistema Financeiro e ao Sistema de
+Catálogo de Cursos externos.</font>
+</ol>
+  <font  size="2"><b>6.1 <a name="_Toc447085912">Processos</a>
+    </b></font><font size="2">
+  <p><img src="images/sadoc_1.gif" alt="Legenda Abaixo no Conteúdo" width="681" height="592" border="0"></p>
+  <p>&nbsp;</p>
+  </font>
+<ol>
+<ol>
+  <font size="2">
+  <p align="CENTER">Nome do Diagrama: Processos</p>
+  </font>
+    
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.1 <a name="_Toc447085913">CourseCatalogSystemAccess</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Esse processo gerencia o acesso ao Sistema de Catálogo de Cursos legado. Ele pode
+    ser compartilhado por vários usuários que se registram em cursos. Isso permite uma cache
+    de ofertas e cursos recuperados recentemente para aprimorar o desempenho.</p>
+    <p>Os encadeamentos separados no processo CourseCatalog, CourseCache e
+    OfferingCache, são utilizados para recuperar itens de forma assíncrona do sistema
+    legado.</p>
+    <p>Mecanismos de Análise:</p>
+    <p>- Interface Legada</p>
+    <p>Rastreabilidade de Requisitos:</p>
+    <p>- Restrições de Design: O sistema deve integrar-se ao sistema legado
+    existente (banco de dados do catálogo de cursos).</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.2 <a name="_Toc447085914">CourseCatalog</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>O catálogo integral de todos os cursos e ofertas de curso oferecidas pela
+    universidade, incluindo aquelas de semestres anteriores.</p>
+    <p>Essa classe age como um adaptador (consulte o padrão Gamma). Ela funciona para
+    certificar-se de que o CourseCatalogSystem possa ser acessado pela interface
+    ICourseCatalog para o subsistema.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.3 <a name="_Toc447085915">CourseRegistrationProcess</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Há uma instância desse processo para cada estudante que está atualmente
+    se registrando em cursos.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.4 <a name="_Toc447085916">RegistrationController</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Isso suporta o caso de uso, permitindo que um estudante se registre em cursos
+    no semestre atual. O estudante também pode modificar ou excluir seleções de
+    cursos se forem feitas alterações no período de inclusão/eliminação no início
+    do semestre. </p>
+    <p>Mecanismos de Análise:</p>
+    <p>- Distribuição</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.5 <a name="_Toc447085917">StudentApplication</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Gerencia a funcionalidade do estudante, incluindo o processamento da interface com o usuário
+    e a coordenação com os processos de negócios.</p>
+    <p>Há uma instância desse processo para cada estudante que está atualmente
+    se registrando em cursos.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.6 <a name="_Toc447085918">MainStudentForm</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Controla a interface do aplicativo do estudante. Controla a família de
+    formulários utilizada pelo Estudante.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.7 <a name="_Toc447085919">BillingSystemAccess</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>Esse processo se comunica com o Sistema Financeiro (Faturamento) externo para
+    iniciar o faturamento de estudantes.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.8 <a name="_Toc447085920">CloseRegistrationProcess</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>O processo Fechar Registro é iniciado no final do
+    período de tempo de registro. Esse processo se comunica com o processo
+    que controla o acesso ao Sistema Financeiro.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.9 <a name="_Toc447085921">BillingSystem</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>O Sistema Financeiro suporta a submissão de contas de estudantes para os
+    cursos em que o estudante se registrou no semestre atual.</p>
+    <p>Mecanismos de Análise:</p>
+    <p>- Interface Legada</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <font  size="2">6.1.10 <a name="_Toc447085922">CloseRegistrationController</a>
+    </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <font size="2">
+  <p>O Controlador de Fechamento de Registro controla o acesso ao Sistema Financeiro.</p>
+  <p>Mecanismos de Análise:</p>
+  <p>- Distribuição</p>
+  <p>&nbsp;</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>6.2 <a name="_Toc447085923">Processo para o Design
+    de Elementos</a>
+    </b></font>
+  <p><img src="images/sadoc_2.gif" alt="Legenda Abaixo no Conteúdo" width="746" height="582" border="0"></p>
+  <font size="2">&nbsp;
+  </font>
+<ol>
+<ol>
+  <font size="2">
+  <p align="CENTER">Nome do Diagrama: Processo para o Design de Elementos</p>
+  </font>
+  
+    </ol>
+</ol><blockquote>
+  <i>
+    <font  size="2">6.2.1 <a name="_Toc447085934">CourseCache</a>
+    </font></i><i>
+    <font size="2">
+    <p>O encadeamento Cache do Curso é utilizado para recuperar itens de forma assíncrona a partir do
+    Sistema de Catálogo de Cursos legado.</p>
+    </font></i></blockquote><i><ol>
+<ol>
+<ol>
+  <font size="2">
+    <p></p></font>
+    </ol>
+    </ol>
+</ol>
+  <blockquote>
+    <p><font  size="2">6.2.2 <a name="_Toc447085936">OfferingCache</a></font></p>
+    <font size="2">
+    <p>O encadeamento OfferingCache é utilizado para recuperar itens de forma assíncrona a partir do
+    Sistema de Catálogo de Cursos legado.</p></font>
+    </blockquote>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol>
+    </i><blockquote><i>
+      <font  size="2">6.2.3 <a name="_Toc447085932">Curso</a>
+    </font></i><font size="2">
+    <p>Uma classe oferecida pela universidade.</p>
+    <p>Mecanismos de Análise:</p>
+    <p>- Persistência</p>
+    <p>- Interface Legada</p>
+    <p>&nbsp;</p>
+    </font><i>
+    <p><font  size="2">6.2.4 <a name="_Toc447085937">CourseOffering</a></font></p>
+    </i></blockquote><ol><ol>
+<i>
+<font  size="2">
+    </font></i><font size="2">
+  <p>Uma oferta específica para um curso, incluindo dias da semana e horários.</p>
+  <p>Mecanismos de Análise:</p>
+  <p>- Persistência</p>
+  <p>- Interface Legada</p>
+  <p>&nbsp;</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>6.3 <a name="_Toc447085949">Modelo de Processo para
+    o Design de Dependências de Modelo</a>
+    </b></font><font size="2">
+  <p align="left"><img src="images/sadoc_5.gif" alt="Legenda Abaixo no Conteúdo" width="557" height="597" border="0"></p>
+  </font>
+  <font size="2">
+  <blockquote>
+  <p align="left">Nome do Diagrama: Modelo de Processo para o Design de Dependências de Modelo</p>
+  </blockquote>
+  <p>&nbsp;</p>
+  </font>
+  <font  size="2"><b>6.4 <a name="_Toc447085950">Processos para a
+    Implementação</a></b></font>
+  <p><img src="images/sadoc_6.gif" alt="Legenda Abaixo no Conteúdo" width="690" height="591" border="0"></p>
+  <p align="left"><font size="2">Nome do Diagrama: Processos para a Implementação
+  </font>
+  </p>
+  <i>
+    <blockquote>
+      <p><font  size="2">6.4.1 <a name="_Toc447085956">Remote</a></font></p>
+      </blockquote></i><ol><ol>
+<ol>
+<i>
+  <font  size="2">
+    </font></i><font size="2">
+    <p>* A interface Remote serve para identificar todos os objetos remotos. Qualquer objeto
+    que seja do tipo remoto deve implementar direta ou indiretamente essa
+    interface. Apenas os métodos especificados em uma interface remota estão disponíveis
+    remotamente.</p>
+    <p>* As classes de implementação podem implementar qualquer quantidade de interfaces remotas
+    e pode estender outras classes de implementação remotas.</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+    <blockquote>
+      <font  size="2">6.4.2 <a name="_Toc447085957">Runnable</a>
+      </font></blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>* A interface <em>Runnable</em> deve ser implementada por qualquer classe
+    cujas instâncias serão executadas por um encadeamento. A classe deve
+    definir um método sem argumentos denominado <em>run</em>.</p>
+    <p>* Essa interface é destinada a fornecer um protocolo comum para objetos
+    que desejam executar código enquanto estão ativos. Por exemplo, <em>Runnable</em>
+    é implementado pela classe <em>Thread</em>.</p>
+    <p>* Estar ativo simplesmente significa que um encadeamento foi iniciado e ainda
+    não foi parado.</p>
+    </font>
+    </ol>
+    </ol>
+</ol><i>
+  <blockquote>
+    <p><font  size="2">6.4.3 <a name="_Toc447085960">Thread</a></font></p>
+    </blockquote>
+    </i>
+<ol>
+<ol>
+  <ol>
+    <font size="2">
+    <p>* Um <i>thread</i> é um encadeamento de execução em um programa. A Java Virtual
+    Machine permite que um aplicativo tenha vários encadeamentos de execução
+    simultaneamente.</p>
+    <p>* Cada encadeamento tem uma prioridade. Os encadeamentos com maior prioridade são executados
+    em preferência aos encadeamentos com menor prioridade. Cada encadeamento também pode ou não
+    ser marcado como um daemon. Quando o código em execução em algum encadeamento cria um novo
+    objeto Thread, o novo encadeamento tem sua prioridade inicialmente definida como sendo igual a
+    prioridade do encadeamento que a criou e será um encadeamento daemon se e somente se o
+    encadeamento criador for um daemon.</p>
+    <p>&nbsp;</p>
+    </font>
+    </ol>
+    </ol>
+</ol>
+  <p><font ><b>7.&nbsp; <a name="_Toc447085962">Visualização da Implementação</a><a name="_Toc447085890" href="#toc"><img border="0" src="../../../../core.base_rup/resources/top.gif" alt="Ir para o início da página." width="26" height="20" ></a></b></font></p>
+<ol>
+<font size="2">
+<p>Uma descrição da visualização da implementação da arquitetura que descreve os
+diversos nós físicos para as mais típicas configurações de plataforma. Também
+descreve a alocação de tarefas (a partir da Visualização do Processo) para os nós físicos.</p>
+<p>Esta seção é organizada por configuração de rede física; cada
+configuração é ilustrada por um diagrama de implementação, seguido de um mapeamento dos
+processos para cada processador.</p>
+<p><img src="images/sadoc_8.gif" alt="Descrito no Conteúdo Acima" width="598" height="444" border="0"></p>
+<p align="left">Nome do Diagrama: Visualização da Implementação</p>
+</font>
+</ol>
+  <font  size="2"><b>7.1 <a name="_Toc447085963">PC Desktop Externo</a>
+    </b></font>
+<ol>
+<ol>
+  <font size="2">
+  <p>Os estudantes se registram em cursos utilizando PCs desktop externos
+  conectados ao Servidor da Universidade via dial-up à Internet.</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>7.2 <a name="_Toc447085964">PC Desktop</a>
+    </b></font>
+<ol>
+<ol>
+  <font size="2">
+  <p>Os estudantes se registram em cursos utilizando PCs Desktop locais conectados
+  diretamente ao Servidor da Universidade via LAN. Esses PCs locais também são utilizados pelos
+  professores para selecionar cursos e submeter notas de estudantes. O Secretário utiliza
+  esses PCs locais para manter informações sobre estudantes e professores.</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>7.3 <a name="_Toc447085965">Servidor de Registro</a>
+    </b></font>
+<ol>
+<ol>
+  <font size="2">
+  <p>O Servidor de Registro é o Servidor UNIX principal do campus. Todas as faculdades e
+  estudantes têm acesso ao Servidor pela LAN do campus.</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>7.4 <a name="_Toc447085966">Catálogo de Cursos</a>
+    </b></font>
+<ol>
+<ol>
+  <font size="2">
+  <p>O Sistema de Catálogo de Cursos é um sistema legado que contém o catálogo de
+  cursos completo. O acesso a ele está disponível pelo Servidor da Universidade e pela LAN.</p>
+  </font>
+    </ol>
+</ol>
+  <font  size="2"><b>7.5 <a name="_Toc447085967">Sistema de Faturamento</a>
+  </b></font>
+<ol>
+  <font size="2">
+<p>O Sistema de Faturamento (também denominado o Sistema Financeiro) é um sistema legado que
+gera as contas de estudantes a cada semestre.</p>
+<p>&nbsp;</p>
+</font>
+</ol>
+  <font ><b>8.&nbsp; <a name="_Toc447085968">Tamanho e Desempenho</a></b></font>
+<ol>
+<blockquote>
+  <font size="2">
+  <p>A arquitetura de software escolhida suporta os principais requisitos de qualidade e prazo:</p>
+  </font></blockquote><font size="2">
+  <ol>
+    <ol>
+      <li>O sistema deve rotear um email em até 15 segundos.</li>
+      <li>O sistema requer um processador Intel Core i3 de 1GHz, 50MB de espaço em disco e 1GB de memória RAM ou configurações superiores.</li>
+    </ol>
+  </ol>
+  </font>
+</ol>
+  <font ><b>9.&nbsp; <a name="_Toc447085969">Qualidade</a></b></font>
+<ol>
+<blockquote>
+  <font size="2">
+  <p>A arquitetura de software suporta os requisitos de qualidade:</p>
+  </font></blockquote><ol>
+  <ol>
+    <font size="2">
+	  <li>A interface do usuário desktop deve estar em conformidade com o Windows XP.</li>
+	  <li>A interface deverá ser de fácil utilização, de forma que um rápido treinamento possibilide que ele seja usado sem maiores dificuldades.</li>
+      <li>Deverá ser confeccionado um manual simples de utilização, que estará disponível no menu de ajuda do sistema.</li>
+	  <li>O sistema deverá estar disponível por pelo menos 80% do dia e, em caso de falhas graves, poderá ficar indisponível por no máximo 5 horas.</li>
+	</font>
+  </ol>
+</ol>
+<p><br>
+<br>
+</p>
+<p>&nbsp;&nbsp;
+&nbsp;
+</ol>
+  &nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+          <td width="56%" height="19"><font ><small><small>Copyright&nbsp; 
+            (c) IBM Corp. 1987, 2004. Todos os direitos reservados.&nbsp;</small></small></font> 
+          </td>
+    <td width="39%" height="19">
+<p align="right"><font ><small><small>
+Exemplo da Web do Projeto de Registro em Curso<br>
+              Versão 2001.03</small></small></font> </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

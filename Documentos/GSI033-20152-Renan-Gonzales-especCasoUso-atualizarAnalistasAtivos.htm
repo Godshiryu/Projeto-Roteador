@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2// EN">
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Especificação do Caso de Uso Atualizar Analistas Ativos</title>
+<link type="text/css" href="../../../../css/default.css" rel="StyleSheet">
+<script src="../../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../';
+				</script>
+</head>
+
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font   size="5"><b>
+<p align="RIGHT">Projeto Roteador</p>
+<p align="RIGHT">Especificação de Caso de Uso</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Caso de Uso Atualizar Analistas Ativos</p></i></b></font>
+<p>&nbsp;</p>
+<font   size="4"><b>
+<p align="RIGHT">Versão 1.0</p></b></font>
+<p>&nbsp;</p>
+<font   size="5"><b>
+<p align="CENTER">Histórico da Revisão</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <th width="24%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Data</b></font></th>
+    <th width="12%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Versão</b></font></th>
+    <th width="39%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Descrição</b></font></th>
+    <th width="24%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Autor</b></font></th>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">07/Out/2015</font></td>
+    <td width="12%" valign="TOP"><font size="2">1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Rascunho</font></td>
+    <td width="24%" valign="TOP"><font size="2">Guilherme Soares</font></td>
+  </tr>
+</table>
+<font   size="5"><b>
+<p align="CENTER">Índice</p></b></font>
+<ol>
+  <li><a href="#_Toc449509123"><font size="2">Breve Descrição</font></a></li>
+  <li><a href="#_Toc449509124"><font size="2">Fluxo de Eventos</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Fluxo Básico</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#Alternate Flows"><font size="2">Fluxos Alternativos</font></a></dd>
+    </dl>
+  </li>
+  <li><a href="#special"><font size="2">Requisitos Especiais
+</font></a></li>
+  <li><a href="#_Toc449509131"><font size="2">Condições Prévias
+</font></a>
+	<dd><font size="2">3.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Interfaces de Software</font></a></dd>
+	<dd><font size="2">3.2&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Interface de Comunicação</font></a></dd>
+  </li>
+  <li><a href="#_Toc449509133"><font size="2">Condições Posteriores
+</font></a></li>
+  <li><a href="#_Toc449509134"><font size="2">Pontos de Extensão
+</font></a></li>
+</ol>
+<b><font   size="5">
+<p align="CENTER">Caso de Uso Atualizar Analistas Ativos<a name="_Toc423410237"></a></p>
+</font>
+</b><ol><b>
+  <li><a name="_Toc449509123"><font  >Breve Descrição</font></a></li>
+</b><font size="2">
+<p>Esse caso de uso deve atualizar a lista de analistas disponíveis e alimentar a fila de prioridade de acordo com essa informação.</p>
+<p>O sistema que gerencia os funcionários e os ramais para pausa e ponto é o agente deste caso de uso.</p>
+</font></ol><font size="2">
+<b><a name="_Toc423410239"></a><a name="_Toc425054505"></a></b></font><b><font  >&nbsp;&nbsp;&nbsp;
+2.&nbsp;&nbsp;&nbsp; <a name="_Toc449509124">Fluxo
+de Eventos</a>
+</font></b>
+<ol>
+  <font size="2">
+<p>O caso de uso inicia quando há uma modificação de status de funcionário cujo alerta é disparado pelo sistema principal da empresa.</p>
+</font></ol><font size="2">
+  <b><a name="_Toc423410240"></a><a name="_Toc425054506"></a></b></font><b><font   size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509125">Fluxo Básico</a></font></b><blockquote>
+  <blockquote>
+    <font size="2">
+  <p>O sistema verifica a lista de funcionários ativos no sistema principal da empresa e atualiza a fila de acordo com a disponibilidade dos analistas e dos assistentes. </p>
+</font>
+  </blockquote>
+  <font   size="2"><b>2.2&nbsp;&nbsp;&nbsp; <a name="Alternate Flows">Fluxos
+  Alternativos</a></b></font>
+  <blockquote><b>
+<font  >
+  </font></b>
+    <font size="2">
+    <p>Não existem cenários alternativos associados a este caso de uso.</p>
+</font></blockquote>
+</blockquote>
+  <b>
+  <p><font  >&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; <a name="special">Requisitos Especiais</a></font></p></b><blockquote><b>
+<font  >
+  </font></b>
+	  <font   size="2"><b>3.1<i>&nbsp;&nbsp;&nbsp; <a name="Cancel Course Offering">Interface de Comunicação</a></i></b></font><font size="2">
+      <blockquote>
+      <p>O sistema deve se comunicar com outros sistemas da empresa, como o sistema que gerencia ponto e pausas dos funcionários.</p>
+      </blockquote></blockquote><p>
+  <font size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font><b><font  > 4.</font></b>&nbsp;&nbsp;&nbsp;
+  <b><font  ><a name="_Toc449509131">Condições Prévias</a></font></b>
+</p>
+<blockquote><b>
+<font  >
+  </font></b>
+    <font size="2">
+    <p>Não existem condições prévias associados a este caso de uso.</p>
+</font></blockquote>
+  <p><b><font   size="3">&nbsp;</font><font  ><font size="3">&nbsp;&nbsp;
+  </font>5.</font><font size="3">&nbsp;&nbsp;&nbsp; </font><font   size="3"><a name="_Toc449509133">Condições Posteriores</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>Não existem condições posteriores associadas a este caso de uso.</p>
+  </font>
+</blockquote>
+  <p><b><font  >&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc449509134">Pontos de Extensão</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>Não existem pontos de extensão associados a este caso de uso.</p></font>
+  <ol>
+    <ol>
+      <p>&nbsp;</p>
+    </ol>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+          <td width="56%" height="19"><font  ><small><small>Copyright 
+        &nbsp; 
+            &copy; IBM Corp. 1987, 2004. Todos os direitos reservados.&nbsp;</small></small></font> 
+          </td>
+    <td width="39%" height="19">
+<p align="right"><font  ><small><small>
+Projeto Roteador<br>
+              Versão 2015.01</small></small></font> </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

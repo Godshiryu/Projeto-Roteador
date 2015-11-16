@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2// EN">
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Especificação do Caso de Uso Rotear Emails</title>
+<link type="text/css" href="../../../../css/default.css" rel="StyleSheet">
+<script src="../../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../';
+				</script>
+</head>
+
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font   size="5"><b>
+<p align="RIGHT">Projeto Roteador</p>
+<p align="RIGHT">Especificação de Caso de Uso</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Caso de Uso Rotear Emails</p></i></b></font>
+<p>&nbsp;</p>
+<font   size="4"><b>
+<p align="RIGHT">Versão 1.0</p></b></font>
+<p>&nbsp;</p>
+<font   size="5"><b>
+<p align="CENTER">Histórico da Revisão</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <th width="24%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Data</b></font></th>
+    <th width="12%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Versão</b></font></th>
+    <th width="39%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Descrição</b></font></th>
+    <th width="24%" valign="TOP" scope="col"><font size="2"><b>
+    <p align="CENTER">Autor</b></font></th>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">07/Out/2015</font></td>
+    <td width="12%" valign="TOP"><font size="2">1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Rascunho</font></td>
+    <td width="24%" valign="TOP"><font size="2">Guilherme Soares</font></td>
+  </tr>
+</table>
+<font   size="5"><b>
+<p align="CENTER">Índice</p></b></font>
+<ol>
+  <li><a href="#_Toc449509123"><font size="2">Breve Descrição</font></a></li>
+  <li><a href="#_Toc449509124"><font size="2">Fluxo de Eventos</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Fluxo Básico</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#Alternate Flows"><font size="2">Fluxos Alternativos</font></a></dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509127"><font size="2">Funcionário em pausa</font></a></dt>
+      <dd>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2&nbsp;&nbsp;&nbsp; <a href="#Cancel Course Offering">Fila de funcionários vazia</a></font></dd>
+    </dl>
+  </li>
+  <li><a href="#special"><font size="2">Requisitos Especiais
+</font></a>
+	<dd><font size="2">3.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Tempo de Roteamento</font></a></dd>
+</li>
+  <li><a href="#_Toc449509131"><font size="2">Condições Prévias
+</font></a>
+	<dd><font size="2">4.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Atualizar Caixa de Entrada</font></a></dd>
+  </li>
+  <li><a href="#_Toc449509133"><font size="2">Condições Posteriores
+</font></a></li>
+  <li><a href="#_Toc449509134"><font size="2">Pontos de Extensão
+</font></a></li>
+</ol>
+<b><font   size="5">
+<p align="CENTER">Caso de Uso Rotear Emails<a name="_Toc423410237"></a></p>
+</font>
+</b><ol><b>
+  <li><a name="_Toc449509123"><font  >Breve Descrição</font></a></li>
+</b><font size="2">
+<p>Esse caso de uso permite que os emails que chegam na caixa de entrada sejam roteados a uma pasta de um analista ou assistente em específico.</p>
+<p>O servidor de emails é um agente deste caso de uso.</p>
+</font></ol><font size="2">
+<b><a name="_Toc423410239"></a><a name="_Toc425054505"></a></b></font><b><font  >&nbsp;&nbsp;&nbsp;
+2.&nbsp;&nbsp;&nbsp; <a name="_Toc449509124">Fluxo
+de Eventos</a>
+</font></b>
+<ol>
+  <font size="2">
+<p>O caso de uso inicia quando um novo email é recebido pelo servidor de emails.</p>
+</font></ol><font size="2">
+  <b><a name="_Toc423410240"></a><a name="_Toc425054506"></a></b></font><b><font   size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509125">Fluxo Básico</a></font></b><blockquote>
+  <blockquote>
+    <font size="2">
+  <p>O sistema verifica a fila de funcionários aptos a receber emails. Se ela não estiver vazia e o primeiro da fila não estiver em pausa, os emails são encaminhados para ele: caso seja um analista, recebe 3 emails; caso seja um assistente, recebe 1 email. </p>
+</font>
+  </blockquote>
+  <font   size="2"><b>2.2&nbsp;&nbsp;&nbsp; <a name="Alternate Flows">Fluxos
+  Alternativos</a></b></font>
+  <p><b><font   size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;
+        2.2.1&nbsp;<i>&nbsp;&nbsp; <a name="_Toc449509127">Funcionário em pausa</a></i></font></b><blockquote>
+  <blockquote>
+    <font size="2">
+      <p>Se no fluxo básico o próximo funcionário da fila estiver em pausa, o sistema deve inserí-lo de volta no fim da fila e deve buscar o próximo funcionário da fila para fazer roteamento.</p></font>
+  </blockquote>
+  <font   size="2"><b>2.2.2<i>&nbsp;&nbsp;&nbsp; <a name="Cancel Course Offering">Fila de funcionários vazia</a></i></b></font><font size="2">
+      <blockquote>
+      <p>Caso a fila de funcionários disponíveis esteja vazia, o roteamento é interrompido e é gerado um alerta ao supervisor.</p>
+      </blockquote>
+  </blockquote>
+</blockquote>
+  <b>
+  <p><font  >&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; <a name="special">Requisitos Especiais</a></font></p></b><blockquote><b>
+<font  >
+  </font></b>
+    <blockquote>
+  <b><font   size="2">3.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509132">Tempo de Roteamento</a></font></b><font size="2">
+      <p>Um email deve ser roteado em no máximo 15 segundos após recebido.</p>
+      </font>
+</blockquote></blockquote><p>
+  <font size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font><b><font  > 4.</font></b>&nbsp;&nbsp;&nbsp;
+  <b><font  ><a name="_Toc449509131">Condições Prévias</a></font></b>
+</p>
+
+<blockquote><b>
+<font  >
+  </font></b>
+    <blockquote>
+  <b><font   size="2">4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509132">Atualizar Caixa de Entrada</a></font></b><font size="2">
+      <p>A caixa de entrada de emails deve ser atualizada antes de que algum email seja roteado.</p>
+      </font>
+</blockquote></blockquote>
+  <p><b><font   size="3">&nbsp;</font><font  ><font size="3">&nbsp;&nbsp;
+  </font>5.</font><font size="3">&nbsp;&nbsp;&nbsp; </font><font   size="3"><a name="_Toc449509133">Condições Posteriores</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>Não existem condições posteriores associadas a este caso de uso.</p>
+  </font>
+</blockquote>
+  <p><b><font  >&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc449509134">Pontos de Extensão</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>Não existem pontos de extensão associados a este caso de uso.</p></font>
+  <ol>
+    <ol>
+      <p>&nbsp;</p>
+    </ol>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+          <td width="56%" height="19"><font  ><small><small>Copyright 
+        &nbsp; 
+            &copy; IBM Corp. 1987, 2004. Todos os direitos reservados.&nbsp;</small></small></font> 
+          </td>
+    <td width="39%" height="19">
+<p align="right"><font  ><small><small>
+Projeto Roteador<br>
+              Versão 2015.01</small></small></font> </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>
